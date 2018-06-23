@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="jp.toastkid.tedsutsu">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.Translucent"
+        >
+        <activity android:name=".MainActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.ASSIST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <meta-data
+                android:name="com.android.systemui.action_assist_icon"
+                android:resource="@mipmap/ic_launcher"
+                />
+        </activity>
+
+        <activity
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+            android:name="com.google.android.gms.oss.licenses.OssLicensesActivity"
+            />
+
+        <activity
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+            android:name="com.google.android.gms.oss.licenses.OssLicensesMenuActivity"
+            />
+    </application>
+
+</manifest>

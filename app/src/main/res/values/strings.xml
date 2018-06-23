@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Tedsutsu</string>
+    <string name="title_package_name_filter">Input app name</string>
+    <string name="message_failed_launching">It cannot launch this app.</string>
+    <string name="date_format">E, MM/dd/yyyy HH:mm:ss</string>
+    <string name="exit">Exit</string>
+    <string name="top_mark">↑</string>
+    <string name="bottom_mark">↓</string>
+    <string name="licenses">License information</string>
+    <string name="about_app">About this app</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="title_app_version">App Version:</string>
+    <string name="launch">Launch</string>
+    <string name="title_assist_app_chooser">Choose Assist App</string>
+    <string name="message_induction_setting_default_app">If you use this app, You should choose this app to default assist app.</string>
+    <string name="content_description_current_app_icon">Current app icon</string>
+    <string name="current_app">Current App:</string>
+</resources>
