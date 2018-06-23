@@ -1,4 +1,4 @@
-Tedsutsu(�蓛)
+Tedsutsu(手筒)
 ====
 This app provides launching any app on long tap.
 
