@@ -26,10 +26,16 @@ object RecyclerViewScroller {
 
     fun toBottom(recyclerView: RecyclerView) {
         val itemCount = recyclerView.adapter.itemCount
-        if (itemCount > THRESHOLD) {
-            recyclerView.scrollToPosition(itemCount - 1)
+        val targetPosition = itemCount - 1
+
+        if (targetPosition < 0) {
             return
         }
-        recyclerView.post { recyclerView.smoothScrollToPosition(itemCount - 1) }
+
+        if (itemCount > THRESHOLD) {
+            recyclerView.scrollToPosition(targetPosition)
+            return
+        }
+        recyclerView.post { recyclerView.smoothScrollToPosition(targetPosition) }
     }
 }
