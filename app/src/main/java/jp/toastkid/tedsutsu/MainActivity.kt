@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
+import com.google.android.gms.ads.MobileAds
 import jp.toastkid.tedsutsu.about.AboutThisAppFragment
 import jp.toastkid.tedsutsu.app_list.AppListFragment
 import jp.toastkid.tedsutsu.preference.AppNamePreference
@@ -18,6 +19,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        MobileAds.initialize(this, "ca-app-pub-5751262573448755~5511550470");
 
         if (attemptToLaunch(intent)) {
             return

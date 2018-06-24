@@ -16,10 +16,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.net.toUri
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import jp.toastkid.tedsutsu.BuildConfig
 import jp.toastkid.tedsutsu.R
+import jp.toastkid.tedsutsu.ad.AdInvoker
 import jp.toastkid.tedsutsu.libs.CustomTabsIntentFactory
+import kotlinx.android.synthetic.main.ad_area.*
 import kotlinx.android.synthetic.main.fragment_about_this_app.*
 import timber.log.Timber
 
@@ -27,6 +31,8 @@ import timber.log.Timber
  * @author toastkidjp
  */
 class AboutThisAppFragment: Fragment() {
+
+    private var adView: AdView? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -36,6 +42,14 @@ class AboutThisAppFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         settings_toolbar.setTitle(R.string.about_app)
+
+        adView = AdView(context).also {
+            it.adSize = AdSize.BANNER
+            it.adUnitId = "ca-app-pub-5751262573448755/5128407095"
+            ad_container.addView(it)
+            AdInvoker(it)
+        }
+
         licenses.setOnClickListener {
             val intent = Intent(context, OssLicensesMenuActivity::class.java)
             intent.putExtra("title", view.context.getString(R.string.licenses))
@@ -57,5 +71,10 @@ class AboutThisAppFragment: Fragment() {
                 }
             }
         }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        adView?.destroy()
     }
 }
