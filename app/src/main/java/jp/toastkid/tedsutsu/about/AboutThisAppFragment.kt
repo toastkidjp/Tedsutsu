@@ -7,9 +7,7 @@
  */
 package jp.toastkid.tedsutsu.about
 
-import android.content.ActivityNotFoundException
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -25,7 +23,6 @@ import jp.toastkid.tedsutsu.ad.AdInvoker
 import jp.toastkid.tedsutsu.libs.CustomTabsIntentFactory
 import kotlinx.android.synthetic.main.ad_area.*
 import kotlinx.android.synthetic.main.fragment_about_this_app.*
-import timber.log.Timber
 
 /**
  * @author toastkidjp
@@ -60,16 +57,10 @@ class AboutThisAppFragment: Fragment() {
         }
         settings_app_version.also {
             it.text = BuildConfig.VERSION_NAME
-            it.setOnClickListener {
-                try {
-                    startActivity(
-                            Intent(Intent.ACTION_VIEW)
-                                    .apply { data = Uri.parse("market://id?=${BuildConfig.APPLICATION_ID}") }
-                    )
-                } catch (e: ActivityNotFoundException) {
-                    Timber.e(e)
-                }
-            }
+        }
+        settings_version_line.setOnClickListener {
+            CustomTabsIntentFactory(context)
+                    ?.launchUrl(context, "market://details?id=${BuildConfig.APPLICATION_ID}".toUri())
         }
     }
 

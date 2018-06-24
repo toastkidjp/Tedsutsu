@@ -67,6 +67,7 @@
         />
 
     <FrameLayout
+        android:id="@+id/settings_version_line"
         android:layout_width="match_parent"
         android:layout_height="@dimen/settings_item_height"
         android:foreground="@drawable/ripple"
