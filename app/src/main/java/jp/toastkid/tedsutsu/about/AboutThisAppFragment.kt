@@ -44,7 +44,7 @@ class AboutThisAppFragment: Fragment() {
         settings_toolbar.setTitle(R.string.about_app)
 
         adView = AdView(context).also {
-            it.adSize = AdSize.BANNER
+            it.adSize = AdSize.LARGE_BANNER
             it.adUnitId = "ca-app-pub-5751262573448755/5128407095"
             ad_container.addView(it)
             AdInvoker(it)
